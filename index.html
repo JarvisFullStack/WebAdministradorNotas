@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pagina con Vuejs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+   <div id="app">
+        
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 col-xs-12 col-lg-12">
+                   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                <img src="https://cdn.pixabay.com/photo/2018/04/11/20/12/silhouette-3311636_960_720.png" width="50" height="30" alt="LuisFelipe">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio
+                      <span class="sr-only">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca del autor</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Servicios que ofrece</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <br>
+            <br>
+          </nav>
+               </div>
+           </div>
+           <div class="row">
+                <div class="col-md-12 col-xs-12 col-lg-12">
+                    <h1 class="mt-5"> </h1>
+                    <h1 class="mt-5 text-center">Administración de Notas</h1>
+                </div>
+           </div>
+           <div class="row">
+               <div class="col-md-6 col-xs-12"> 
+                    
+                   <h1 class="mt-5">Agregar Nota</h1>
+                   <label>Nombre</label>
+                   <input type="text" class="form-control" v-model="nombre">
+                   <label>Promedio</label>
+                   <input type="number" max="20" min="0" class="form-control" v-model="promedio">
+                   <input type="button" value="Guardar" class="btn btn-success" v-on:click ="agregarNota">
+               </div>
+               <div class="col-md-6 col-xs-12">
+                    
+                   <h1 class="mt-5" v-if="lista.length > 0">Lista de Notas</h1>
+                   <h1 class="mt-5" v-else>No Existen Notas</h1>
+                   <table class="table">
+                       <tr>
+                           <th>Nombre</th>
+                           <th>Promedio</th>
+                       </tr>
+                       <tr v-for="item in lista" v-bind:style="item.estado==false ? 'color:red':'color:green'">
+                           <td v-text="item.nombre"> </td>
+                           <td v-text="item.promedio"> </td>
+                       </tr>
+                   </table>
+               </div>
+           </div>
+
+           <div class="row">
+               <div class="col-md-6 col-xs-12 col-lg-12">
+                   <br><br>
+                   <p class="text-center">GitHub: @JarvisFullStack - IG: @_geekboy</p>
+               </div>
+           </div>
+       </div>
+   </div>
+    
+</body>
+<script src="js/vue.js"></script>
+<script src="js/principal.js"></script>
+</html>
